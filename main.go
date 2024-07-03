@@ -28,6 +28,7 @@ func main() {
 			}
 			if i == 0 && handler.NeedInput() && result == "" {
 				cmd = "stdin"
+				handler = factory[cmd]
 				i--
 			}
 			result, inc_i, err = handler.Handle(result, params, i)

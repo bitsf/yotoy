@@ -31,6 +31,21 @@ func TestMainFunction(t *testing.T) {
 			args:   []string{"main.go", "-str", `abc`, "-base64"},
 			expect: "YWJj",
 		},
+		{
+			desc:   "base64 decode",
+			args:   []string{"main.go", "-str", `YWJj`, "-base64", "-decode"},
+			expect: "abc",
+		},
+		{
+			desc:   "base64 decode then encode",
+			args:   []string{"main.go", "-str", `YWJj`, "-base64", "-decode", "-base64"},
+			expect: "YWJj",
+		},
+		{
+			desc:   "base64 encode then decode",
+			args:   []string{"main.go", "-str", `def`, "-base64", "-base64", "-decode"},
+			expect: "def",
+		},
 	}
 
 	for _, _tc := range testCases {
