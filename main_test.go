@@ -26,10 +26,15 @@ func TestMainFunction(t *testing.T) {
   "b": "22"
 }`,
 		},
+		{
+			desc:   "base64 encode",
+			args:   []string{"main.go", "-str", `abc`, "-base64"},
+			expect: "YWJj",
+		},
 	}
 
-	var buf bytes.Buffer
-	for _, tc := range testCases {
+	for _, _tc := range testCases {
+		tc := _tc
 		t.Run(tc.desc, func(t *testing.T) {
 			os.Args = tc.args
 			originalStdout := os.Stdout
@@ -38,7 +43,7 @@ func TestMainFunction(t *testing.T) {
 			outC := make(chan struct{})
 
 			main()
-
+			var buf bytes.Buffer
 			go func() {
 				io.Copy(&buf, r)
 				outC <- struct{}{}

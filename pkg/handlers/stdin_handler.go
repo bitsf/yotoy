@@ -7,6 +7,7 @@ import (
 )
 
 type StdinHandler struct {
+	pkg.BaseHandler
 }
 
 func (s StdinHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
@@ -17,6 +18,10 @@ func (s StdinHandler) Handle(input string, params []string, current_ind int) (ou
 	}
 	output = string(bytes)
 	return
+}
+
+func (s StdinHandler) NeedInput() bool {
+	return false
 }
 
 func init() {
