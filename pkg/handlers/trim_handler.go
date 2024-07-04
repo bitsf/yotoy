@@ -6,14 +6,20 @@ import (
 )
 
 type TrimHandler struct {
-	pkg.BaseHandler
+	pkg.AbsCommonHandler
 }
 
-func (s TrimHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
+func (h *TrimHandler) InternalHandle(input string) (output string, err error) {
 	output = strings.TrimSpace(input)
-	return output, 0, nil
+	return
+}
+
+func NewTrimHandler() *TrimHandler {
+	h := &TrimHandler{pkg.AbsCommonHandler{}}
+	h.IHasparamHandler = h
+	return h
 }
 
 func init() {
-	pkg.Register("trim", &TrimHandler{})
+	pkg.Register("trim", NewTrimHandler())
 }

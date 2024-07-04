@@ -16,6 +16,16 @@ func (BaseHandler) NeedInput() bool {
 	return true
 }
 
+type AbsCommonHandler struct {
+	BaseHandler
+	IHasparamHandler
+}
+
+func (h *AbsCommonHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
+	output, err = h.InternalHandle(input)
+	return output, 0, nil
+}
+
 type IHasparamHandler interface {
 	InternalHandle(input string) (output string, err error)
 }

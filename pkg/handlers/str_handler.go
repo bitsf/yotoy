@@ -3,11 +3,11 @@ package handlers
 import "godevtoy/pkg"
 
 type StrHandler struct {
-	pkg.BaseHandler
+	pkg.AbsHasparamHandler
 }
 
-func (h *StrHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
-	output, inc_i = params[current_ind+1], 1
+func (h *StrHandler) InternalHandle(input string) (output string, err error) {
+	output = h.Params[0]
 	return
 }
 
@@ -15,6 +15,13 @@ func (s StrHandler) NeedInput() bool {
 	return false
 }
 
+func NewStrHandler() *StrHandler {
+	h := &StrHandler{pkg.AbsHasparamHandler{}}
+	h.ParamNum = 1
+	h.IHasparamHandler = h
+	return h
+}
+
 func init() {
-	pkg.Register("str", &StrHandler{})
+	pkg.Register("str", NewStrHandler())
 }

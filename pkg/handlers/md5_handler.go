@@ -7,15 +7,21 @@ import (
 )
 
 type Md5Handler struct {
-	pkg.BaseHandler
+	pkg.AbsCommonHandler
 }
 
-func (s Md5Handler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
+func (h *Md5Handler) InternalHandle(input string) (output string, err error) {
 	hash := md5.Sum([]byte(input))
 	output = hex.EncodeToString(hash[:])
 	return
 }
 
+func NewMd5Handler() *Md5Handler {
+	h := &Md5Handler{pkg.AbsCommonHandler{}}
+	h.IHasparamHandler = h
+	return h
+}
+
 func init() {
-	pkg.Register("md5", &Md5Handler{})
+	pkg.Register("md5", NewMd5Handler())
 }

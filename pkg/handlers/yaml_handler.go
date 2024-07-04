@@ -6,14 +6,14 @@ import (
 )
 
 type YamlHandler struct {
-	pkg.BaseHandler
+	pkg.AbsCommonHandler
 }
 
-func (s YamlHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
+func (h *YamlHandler) InternalHandle(input string) (output string, err error) {
 	var data map[string]interface{}
 	err = yaml.Unmarshal([]byte(input), &data)
 	if err != nil {
-		return "", 0, err
+		return
 	}
 
 	result, _err := yaml.Marshal(data)
@@ -25,6 +25,12 @@ func (s YamlHandler) Handle(input string, params []string, current_ind int) (out
 	return
 }
 
+func NewYamlHandler() *YamlHandler {
+	h := &YamlHandler{pkg.AbsCommonHandler{}}
+	h.IHasparamHandler = h
+	return h
+}
+
 func init() {
-	pkg.Register("yaml", &YamlHandler{})
+	pkg.Register("yaml", NewYamlHandler())
 }

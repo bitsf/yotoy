@@ -7,10 +7,10 @@ import (
 )
 
 type JsonHandler struct {
-	pkg.BaseHandler
+	pkg.AbsCommonHandler
 }
 
-func (s JsonHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
+func (h *JsonHandler) InternalHandle(input string) (output string, err error) {
 	var result map[string]interface{}
 	err = yaml.Unmarshal([]byte(input), &result)
 	if err != nil {
@@ -26,6 +26,12 @@ func (s JsonHandler) Handle(input string, params []string, current_ind int) (out
 	return
 }
 
+func NewJsonHandler() *JsonHandler {
+	h := &JsonHandler{pkg.AbsCommonHandler{}}
+	h.IHasparamHandler = h
+	return h
+}
+
 func init() {
-	pkg.Register("json", &JsonHandler{})
+	pkg.Register("json", NewJsonHandler())
 }

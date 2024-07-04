@@ -7,10 +7,10 @@ import (
 )
 
 type StdinHandler struct {
-	pkg.BaseHandler
+	pkg.AbsCommonHandler
 }
 
-func (s StdinHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
+func (h *StdinHandler) InternalHandle(input string) (output string, err error) {
 	bytes, _err := io.ReadAll(os.Stdin)
 	if _err != nil {
 		err = _err
@@ -24,6 +24,12 @@ func (s StdinHandler) NeedInput() bool {
 	return false
 }
 
+func NewStdinHandler() *StdinHandler {
+	h := &StdinHandler{pkg.AbsCommonHandler{}}
+	h.IHasparamHandler = h
+	return h
+}
+
 func init() {
-	pkg.Register("stdin", &StdinHandler{})
+	pkg.Register("stdin", NewStdinHandler())
 }
