@@ -3,6 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"godevtoy/pkg"
+	"gopkg.in/yaml.v2"
 )
 
 type JsonHandler struct {
@@ -11,7 +12,7 @@ type JsonHandler struct {
 
 func (s JsonHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
 	var result map[string]interface{}
-	err = json.Unmarshal([]byte(input), &result)
+	err = yaml.Unmarshal([]byte(input), &result)
 	if err != nil {
 		return
 	}

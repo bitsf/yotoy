@@ -46,6 +46,55 @@ func TestMainFunction(t *testing.T) {
 			args:   []string{"main.go", "-str", `def`, "-base64", "-base64", "-decode"},
 			expect: "def",
 		},
+		{
+			desc:   "md5 encode",
+			args:   []string{"main.go", "-str", `abc`, "-md5"},
+			expect: "900150983cd24fb0d6963f7d28e17f72",
+		},
+		{
+			desc: "yaml format",
+			args: []string{"main.go", "-str", `
+a: 1
+b:
+  c: 2
+  d: 3
+e:
+  - 1
+  - 2
+`, "-yaml", "-trim"},
+			expect: `a: 1
+b:
+  c: 2
+  d: 3
+e:
+- 1
+- 2`,
+		},
+		{
+			desc: "json to yaml",
+			args: []string{"main.go", "-str", `
+{
+  "a": "11",
+  "b": "22"
+}
+`, "-yaml"},
+			expect: `a: "11"
+b: "22"
+`,
+		},
+		{
+			desc: "json to yaml to json",
+			args: []string{"main.go", "-str", `
+{
+  "a": "11",
+  "b": "22"
+}
+`, "-yaml", "-json"},
+			expect: `{
+  "a": "11",
+  "b": "22"
+}`,
+		},
 	}
 
 	for _, _tc := range testCases {
