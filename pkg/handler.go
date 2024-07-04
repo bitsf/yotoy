@@ -2,7 +2,10 @@ package pkg
 
 import "github.com/pkg/errors"
 
-var ErrNotEnoughParams = errors.New("Not enough params")
+var (
+	ErrNotEnoughParams = errors.New("Not enough params")
+	ErrInvalidParam    = errors.New("Bad params")
+)
 
 type Handler interface {
 	Handle(input string, params []string, current_ind int) (output string, inc_i int, err error)

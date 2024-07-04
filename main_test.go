@@ -50,7 +50,7 @@ func TestMainFunction(t *testing.T) {
 		},
 		{
 			desc:   "md5 encode",
-			args:   []string{"main.go", "-str", `abc`, "-md5"},
+			args:   []string{"main.go", "-str", `abc`, "-hash", "md5"},
 			expect: "900150983cd24fb0d6963f7d28e17f72",
 		},
 		{
@@ -117,6 +117,11 @@ b: "22"
 				}
 
 			},
+		},
+		{
+			desc:   "upper lower",
+			args:   []string{"main.go", "-str", `def`, "-upper", "-lower", "-upper"},
+			expect: "DEF",
 		},
 	}
 
