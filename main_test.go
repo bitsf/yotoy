@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"os"
 	"testing"
@@ -9,9 +10,10 @@ import (
 
 func TestMainFunction(t *testing.T) {
 	testCases := []struct {
-		desc   string
-		args   []string
-		expect string
+		desc       string
+		args       []string
+		expect     string
+		expectFunc func(result string) error
 	}{
 		{
 			desc: "format raw string",
@@ -95,6 +97,27 @@ b: "22"
   "b": "22"
 }`,
 		},
+		{
+			desc: "tee",
+			args: []string{"main.go", "-str", `def`, "-tee", "/tmp/godevtoy.tmp"},
+			expectFunc: func(result string) error {
+				if f, err := os.OpenFile("/tmp/godevtoy.tmp", os.O_RDONLY, 0644); err != nil {
+					return err
+				} else {
+					defer os.Remove("/tmp/godevtoy.tmp")
+					defer f.Close()
+					s, err := io.ReadAll(f)
+					if err != nil {
+						return err
+					}
+					if result != string(s) {
+						return fmt.Errorf("expected %s, got %s", result, s)
+					}
+					return nil
+				}
+
+			},
+		},
 	}
 
 	for _, _tc := range testCases {
@@ -115,7 +138,11 @@ b: "22"
 			w.Close()
 			<-outC
 			os.Stdout = originalStdout
-			if buf.String() != tc.expect {
+			if tc.expectFunc != nil {
+				if err := tc.expectFunc(buf.String()); err != nil {
+					t.Error(err)
+				}
+			} else if buf.String() != tc.expect {
 				t.Errorf("expected %s, got %s", tc.expect, buf.String())
 			}
 		})

@@ -7,26 +7,25 @@ import (
 )
 
 type FileHandler struct {
-	pkg.BaseHandler
+	pkg.AbsHasparamHandler
 }
 
-func (s FileHandler) Handle(input string, params []string, current_ind int) (output string, inc_i int, err error) {
-	h, _err := os.OpenFile(params[current_ind+1], os.O_RDONLY, 0644)
+func (h FileHandler) InternalHandle(input string) (output string, err error) {
+	f, _err := os.OpenFile(h.Params[0], os.O_RDONLY, 0644)
 	if _err != nil {
 		err = _err
 		return
 	}
-	bytes, _err := io.ReadAll(h)
+	bytes, _err := io.ReadAll(f)
 	if _err != nil {
 		err = _err
 		return
 	}
-	inc_i = 1
 	output = string(bytes)
 	return
 }
 
-func (s FileHandler) NeedInput() bool {
+func (h FileHandler) NeedInput() bool {
 	return false
 }
 

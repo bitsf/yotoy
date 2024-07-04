@@ -6,7 +6,7 @@ import (
 )
 
 type Base64Handler struct {
-	pkg.EncodeDecodeHandler
+	pkg.AbsEncodeDecodeHandler
 }
 
 func (s Base64Handler) Encode(input string) (output string, err error) {
@@ -25,7 +25,7 @@ func (s Base64Handler) Decode(input string) (output string, err error) {
 }
 
 func NewBase64Handler() Base64Handler {
-	h := Base64Handler{pkg.EncodeDecodeHandler{}}
+	h := Base64Handler{pkg.AbsEncodeDecodeHandler{}}
 	h.IEncodeDecodeHandler = h
 	return h
 }
