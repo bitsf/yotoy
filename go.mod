@@ -1,4 +1,4 @@
-module godevtoy
+module yytoy
 
 go 1.22
 

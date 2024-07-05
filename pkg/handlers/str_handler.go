@@ -1,6 +1,6 @@
 package handlers
 
-import "godevtoy/pkg"
+import "yytoy/pkg"
 
 type StrHandler struct {
 	pkg.AbsHasparamHandler

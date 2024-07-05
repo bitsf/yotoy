@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"godevtoy/pkg"
 	"os"
+	"yytoy/pkg"
 )
 
 type TeeHandler struct {

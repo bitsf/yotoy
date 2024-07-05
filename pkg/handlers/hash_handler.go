@@ -6,7 +6,7 @@ import (
 	"crypto/sha256"
 	"crypto/sha512"
 	"encoding/hex"
-	"godevtoy/pkg"
+	"yytoy/pkg"
 )
 
 type HashHandler struct {

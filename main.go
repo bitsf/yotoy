@@ -2,16 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
-	"godevtoy/pkg"
 	"os"
 	"strings"
 
-	_ "godevtoy/pkg/handlers"
+	"github.com/pkg/errors"
+
+	"yytoy/pkg"
+	_ "yytoy/pkg/handlers"
 )
 
 func main() {
-	factory := initHandler()
+	factory := initHandlerFactory()
 	result := ""
 	var err error
 	var inc_i int
@@ -43,6 +44,6 @@ func main() {
 	fmt.Print(result)
 }
 
-func initHandler() map[string]pkg.Handler {
+func initHandlerFactory() map[string]pkg.Handler {
 	return pkg.GetFactory()
 }

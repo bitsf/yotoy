@@ -1,10 +1,10 @@
 # Project Title
 
-DevToys implemented in the golang language.
+YYToy is a CLI based Swiss Army Knife for Developer implemented in the golang language. Inspired by [DevToys](https://github.com/DevToys-app/DevToys).
 
 ## Description
 
-This project is a command-line tool written in Go that is similar to DevToys, which can process text data in various ways.
+YYToy is a command-line tool written in Go that is similar to DevToys, which can process text data in various ways and process text in pipeline.
 
 ## Features
 
@@ -12,6 +12,7 @@ This project is a command-line tool written in Go that is similar to DevToys, wh
 - Encode and decode hashes
 - Encrypt and Decrypt data
 - Format json, yaml, html text
+- Process data in pipeline
 
 ## Getting Started
 
@@ -28,20 +29,13 @@ This project is a command-line tool written in Go that is similar to DevToys, wh
 ### Executing program
 
 - Run the compiled binary with the desired flags and inputs
-  - To read json from stdin, and pretty format: `./godevtoy -json`
-  - To read from a file and encode to base64: `./godevtoy -file <path> -base64`
-  - To encode raw string to base64: `./godevtoy -str "abcde" -base64`
+  - To read json from stdin, and pretty format: `./yytoy -json`
+  - To read from a file and encode to base64: `./yytoy -file <path> -base64`
+  - To encode raw string to base64: `./yytoy -str "abcde" -base64`
 
 ## Help
 
-Any advise for common problems or issues.
-```
-```markdown
-command to run if program contains helper info:
-```
-```markdown
-./your_binary_name --help
-```
+Any advice for common problems or issues.
 
 ## Authors
 
@@ -56,8 +50,8 @@ Contributors names and contact info
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md) - see the LICENSE file for details
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
+Inspired by [DevToys](https://github.com/DevToys-app/DevToys).

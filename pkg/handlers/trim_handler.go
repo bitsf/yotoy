@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"godevtoy/pkg"
 	"strings"
+	"yytoy/pkg"
 )
 
 type TrimHandler struct {
