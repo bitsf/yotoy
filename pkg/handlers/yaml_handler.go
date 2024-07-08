@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"yytoy/pkg"
+	"yotoy/pkg"
 
 	"gopkg.in/yaml.v2"
 )

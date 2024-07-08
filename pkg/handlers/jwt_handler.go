@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
-	"yytoy/pkg"
+	"yotoy/pkg"
 )
 
 type JwtHandler struct {

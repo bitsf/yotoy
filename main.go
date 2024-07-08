@@ -7,8 +7,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"yytoy/pkg"
-	_ "yytoy/pkg/handlers"
+	"yotoy/pkg"
+	_ "yotoy/pkg/handlers"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"strings"
-	"yytoy/pkg"
+	"yotoy/pkg"
 )
 
 type TrimHandler struct {

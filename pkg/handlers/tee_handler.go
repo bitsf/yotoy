@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"os"
-	"yytoy/pkg"
+	"yotoy/pkg"
 )
 
 type TeeHandler struct {

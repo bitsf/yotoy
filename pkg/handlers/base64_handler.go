@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"encoding/base64"
-	"yytoy/pkg"
+	"yotoy/pkg"
 )
 
 type Base64Handler struct {

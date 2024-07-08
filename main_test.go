@@ -99,12 +99,12 @@ b: "22"
 		},
 		{
 			desc: "tee",
-			args: []string{"main.go", "-str", `def`, "-tee", "/tmp/yytoy.tmp"},
+			args: []string{"main.go", "-str", `def`, "-tee", "/tmp/yotoy.tmp"},
 			expectFunc: func(result string) error {
-				if f, err := os.OpenFile("/tmp/yytoy.tmp", os.O_RDONLY, 0644); err != nil {
+				if f, err := os.OpenFile("/tmp/yotoy.tmp", os.O_RDONLY, 0644); err != nil {
 					return err
 				} else {
-					defer os.Remove("/tmp/yytoy.tmp")
+					defer os.Remove("/tmp/yotoy.tmp")
 					defer f.Close()
 					s, err := io.ReadAll(f)
 					if err != nil {

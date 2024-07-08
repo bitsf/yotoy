@@ -3,7 +3,7 @@ package handlers
 import (
 	"io"
 	"os"
-	"yytoy/pkg"
+	"yotoy/pkg"
 )
 
 type StdinHandler struct {

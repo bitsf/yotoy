@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
-	"yytoy/pkg"
+	"yotoy/pkg"
 
 	"gopkg.in/yaml.v2"
 )

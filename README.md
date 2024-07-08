@@ -1,10 +1,10 @@
 # Project Title
 
-YYToy is a CLI based Swiss Army Knife for Developer implemented in the golang language. Inspired by [DevToys](https://github.com/DevToys-app/DevToys).
+YoToy is a CLI based Swiss Army Knife for Developer implemented in the golang language. Inspired by [DevToys](https://github.com/DevToys-app/DevToys).
 
 ## Description
 
-YYToy is a command-line tool written in Go that is similar to DevToys, which can process text data in various ways and process text in pipeline.
+YoToy is a command-line tool written in Go that is similar to DevToys, which can process text data in various ways and process text in pipeline.
 
 ## Features
 
@@ -29,9 +29,9 @@ YYToy is a command-line tool written in Go that is similar to DevToys, which can
 ### Executing program
 
 - Run the compiled binary with the desired flags and inputs
-  - To read json from stdin, and pretty format: `./yytoy -json`
-  - To read from a file and encode to base64: `./yytoy -file <path> -base64`
-  - To encode raw string to base64: `./yytoy -str "abcde" -base64`
+  - To read json from stdin, and pretty format: `./yotoy -json`
+  - To read from a file and encode to base64: `./yotoy -file <path> -base64`
+  - To encode raw string to base64: `./yotoy -str "abcde" -base64`
 
 ## Help
 
