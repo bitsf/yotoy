@@ -1,4 +1,4 @@
-name: Build
+name: Release
 
 on:
   push:
@@ -23,6 +23,6 @@ jobs:
       - name: Run goreleaser
         uses: goreleaser/goreleaser-action@v6
         with:
-          args: release
+          args: release --draft
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

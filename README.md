@@ -1,4 +1,4 @@
-# Project Title
+# YoToy
 
 YoToy is a CLI based Swiss Army Knife for Developer implemented in the golang language. Inspired by [DevToys](https://github.com/DevToys-app/DevToys).
 
@@ -22,9 +22,17 @@ YoToy is a command-line tool written in Go that is similar to DevToys, which can
 
 ### Installing
 
+- You can download binaries from [releases page](https://github.com/bitsf/yotoy/releases/latest)
+
+> [!NOTE] 
+> 
+> As of now, Mac OS binaries are unsigned, you can try using this command to fix.
+> 
+> `xattr -d com.apple.quarantine yotoy`
+
 - Clone the repository to your local machine
 - Navigate to the project directory
-- Use `go build` to compile the project
+- Use `go build -o yotoy` to compile the project
 
 ### Executing program
 
