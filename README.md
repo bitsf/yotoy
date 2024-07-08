@@ -2,6 +2,8 @@
 
 YoToy is a CLI based Swiss Army Knife for Developer implemented in the golang language. Inspired by [DevToys](https://github.com/DevToys-app/DevToys).
 
+[![Basic validation](https://github.com/bitsf/yotoy/actions/workflows/build.yaml/badge.svg)](https://github.com/bitsf/yotoy/actions/workflows/build.yaml)
+
 ## Description
 
 YoToy is a command-line tool written in Go that is similar to DevToys, which can process text data in various ways and process text in pipeline.
@@ -55,6 +57,10 @@ Contributors names and contact info
 
 - 0.0.1
     - Initial Release
+
+# Contributions
+
+Contributions are welcome!
 
 ## License
 
